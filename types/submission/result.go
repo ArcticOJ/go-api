@@ -26,19 +26,35 @@ type (
 	}
 )
 
+const (
+	VerdictNone                Verdict = ""
+	VerdictAccepted            Verdict = "AC"
+	VerdictPartiallyAccepted   Verdict = "PA"
+	VerdictWrongAnswer         Verdict = "WA"
+	VerdictInternalError       Verdict = "IE"
+	VerdictRejected            Verdict = "RJ"
+	VerdictCancelled           Verdict = "CL"
+	VerdictRuntimeError        Verdict = "RTE"
+	VerdictTimeLimitExceeded   Verdict = "TLE"
+	VerdictMemoryLimitExceeded Verdict = "MLE"
+	VerdictOutputLimitExceeded Verdict = "OLE"
+	VerdictStackLimitExceeded  Verdict = "SLE"
+	VerdictCompileError        Verdict = "CE"
+)
+
 var verdictStrings = map[Verdict]string{
-	"AC":  "Answer correct",
-	"WA":  "Wrong answer",
-	"PA":  "Partially accepted",
-	"IE":  "Internal error",
-	"RJ":  "Rejected",
-	"CL":  "Cancelled",
-	"RTE": "Runtime error",
-	"TLE": "Time limit exceeded",
-	"MLE": "Memory limit exceeded",
-	"OLE": "Output limit exceeded",
-	"SLE": "Stack limit exceeded",
-	"CE":  "Compile error",
+	VerdictAccepted:            "Answer correct",
+	VerdictWrongAnswer:         "Wrong answer",
+	VerdictPartiallyAccepted:   "Partially accepted",
+	VerdictInternalError:       "Internal error",
+	VerdictRejected:            "Rejected",
+	VerdictCancelled:           "Cancelled",
+	VerdictRuntimeError:        "Runtime error",
+	VerdictTimeLimitExceeded:   "Time limit exceeded",
+	VerdictMemoryLimitExceeded: "Memory limit exceeded",
+	VerdictOutputLimitExceeded: "Output limit exceeded",
+	VerdictStackLimitExceeded:  "Stack limit exceeded",
+	VerdictCompileError:        "Compile error",
 }
 
 func (v Verdict) LongString() string {
